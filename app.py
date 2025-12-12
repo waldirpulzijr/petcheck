@@ -50,7 +50,14 @@ if uploaded_file is not None:
 
     if st.button("Classificar"):
         pred = transform_img(uploaded_file)
-        result = "🐱 Gato" if pred == 0 else "🐶 Cachorro"
+        #result = "🐱 Gato" if pred == 0 else "🐶 Cachorro"
+
+        if pred == 0:
+            result = "🐶 Cachorro"
+        elif pred == 1:
+            result = "🐱 Gato"
+        else:
+             result = "Não é 🐶 Cachorro ou 🐱 Gato"
 
         st.subheader("Resultado:")
         st.success(result)
